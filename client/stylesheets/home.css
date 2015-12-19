@@ -1,0 +1,10 @@
+body{
+	margin: 0px;
+}
+label[data-error]:after {
+  white-space: nowrap;
+}
+.container .vertical {
+	position:relative;
+	padding:30% 10%;
+}

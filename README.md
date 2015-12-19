@@ -1,2 +1,2 @@
 # Social-Network
-A mini Social Network using Meteor
+A mini Social Network using Meteor[*Currently under Development*]

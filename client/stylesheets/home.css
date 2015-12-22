@@ -6,5 +6,9 @@ label[data-error]:after {
 }
 .container .vertical {
 	position:relative;
-	padding:30% 10%;
+	padding:10% 10%;
+}
+
+#login{
+	font-size: 23px;
 }

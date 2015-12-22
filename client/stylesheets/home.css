@@ -9,6 +9,6 @@ label[data-error]:after {
 	padding:10% 10%;
 }
 
-#login{
+#login, #signup{
 	font-size: 23px;
 }

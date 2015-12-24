@@ -1,23 +1,23 @@
 <template name="signup">
 	<div class="container">
 		<div class="row vertical">
-			<form>
+			<form id="signup-form">
 				<div class="row">
 		        	<div class="input-field col s12">
-		          		<input id="email" type="email" class="validate"/>
-		          		<label for="email" data-error="Please check your email address">Email</label>
+		          		<input id="signup-name" type="text" class="validate" required/>
+		          		<label for="signup-name" data-error="Please check yor name">Name</label>
 		        	</div>
 		      	</div>
 				<div class="row">
 		        	<div class="input-field col s12">
-		          		<input id="password" type="password" class="validate"/>
-		          		<label for="password" data-error="Field cannot be empty">Password</label>
+		          		<input id="signup-email" type="email" class="validate" required/>
+		          		<label for="signup-email" data-error="Please check your email address">Email</label>
 		        	</div>
 		      	</div>
-		      	<div class="row">
+				<div class="row">
 		        	<div class="input-field col s12">
-		          		<input id="cpassword" type="password" class="validate"/>
-		          		<label for="cpassword" data-error="Field cannot be empty">Confirm Password</label>
+		          		<input id="signup-password" type="password" class="validate" required/>
+		          		<label for="signup-password" data-error="Field cannot be empty">Password</label>
 		        	</div>
 		      	</div>
 		      	<div class="row">

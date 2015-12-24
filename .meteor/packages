@@ -20,3 +20,4 @@ materialize:materialize
 fortawesome:fontawesome
 accounts-password
 iron:router
+accounts-base

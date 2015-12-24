@@ -1,21 +1,29 @@
 <template name="login">
 	<div class="container">
 		<div class="row vertical">
-			<form>
+			<div id="login-error-modal" class="modal">
+    			<div class="modal-content" id="login-error">
+    			</div>
+    			<div class="modal-footer">
+      				<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Ok</a>
+    			</div>
+  			</div>
+			<form id="login-form">
 				<div class="row">
 		        	<div class="input-field col s12">
-		          		<input id="email" type="email" class="validate"/>
-		          		<label for="email" data-error="Please check your email address">Email</label>
+		          		<input id="login-email" type="email" class="validate" required/>
+		          		<label for="login-email" data-error="Please check your email address">Email</label>
 		        	</div>
 		      	</div>
 				<div class="row">
 		        	<div class="input-field col s12">
-		          		<input id="password" type="password" class="validate"/>
-		          		<label for="password" data-error="Field cannot be empty">Password</label>
+		          		<input id="login-password" type="password" class="validate" required/>
+		          		<label for="login-password" data-error="Field cannot be empty">Password</label>
 		        	</div>
 		      	</div>
 		      	<div class="row">
-					<button class="input-field col s12 btn waves-effect waves-light" type="submit" name="login" id="login">Submit
+					<button class="input-field col s12 btn waves-effect waves-light" type="submit" name="login" id="login">
+						Submit
 			  			<i class="fa fa-chevron-right"></i>
 					</button>
 		      	</div>

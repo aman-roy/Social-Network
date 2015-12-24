@@ -1,6 +1,17 @@
-Router.configure({
-    layoutTemplate: 'mainLayout'
-});
+/*Router.configure({
+    layoutTemplate: 'mainLayout',
+    onBeforeAction: function(){
+    	var routeName = this.route.name;
+    	if(!Meteor.user() && this.ready()){
+    		return this.redirect('/login');
+    	}
+    	else{
+    		return this.next();
+    	}
+    },{
+    	except: ['login','signup','forgot']
+    }
+});*/
 
 Router.route('/', function () {
 	this.layout('formLayout');
@@ -21,6 +32,11 @@ Router.route('/forgotPassword', function () {
 	this.layout('formLayout');
 	this.render('forgotPassword');
 });
+
+Router.route('/newsfeed', function () {
+  this.render('newsfeed');
+});
+
 Router.route('/post/:_id', {
   // The name of the route.
   // Used to reference the route in path helpers and to find a default template
@@ -81,7 +97,7 @@ Router.route('/post/:_id', {
   // Hooks" section.
   onRun: function () {},
   onRerun: function () {},
-  onBeforeAction: function () {},
+  onBeforeAction: function() {},
   onAfterAction: function () {},
   onStop: function () {},
 

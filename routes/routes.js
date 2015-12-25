@@ -1,41 +1,116 @@
-/*Router.configure({
-    layoutTemplate: 'mainLayout',
-    onBeforeAction: function(){
-    	var routeName = this.route.name;
-    	if(!Meteor.user() && this.ready()){
-    		return this.redirect('/login');
-    	}
-    	else{
-    		return this.next();
-    	}
-    },{
-    	except: ['login','signup','forgot']
+this.PublicController = RouteController.extend({
+  loadingTemplate: "loading"
+});
+
+Router.route('/', {
+  name: 'homeLogin',
+  path: '/',
+  layoutTemplate: "formLayout",
+  template: 'login',
+  onBeforeAction: function() {
+    if (Meteor.loggingIn()) {
+      return this.render("loading");
     }
-});*/
-
-Router.route('/', function () {
-	this.layout('formLayout');
-	this.render('login');
+    else if (Meteor.user()) {
+      return this.redirect("/newsfeed");
+    }
+    else{
+      this.next();
+    }
+  },
+  action: function () {
+    this.render();
+  }
 });
 
-Router.route('/login', function () {
-	this.layout('formLayout');
-	this.render('login');
+Router.route('/login', {
+  name: 'login',
+  path: '/login',
+  layoutTemplate: "formLayout",
+  template: 'login',
+  onBeforeAction: function() {
+    if (Meteor.loggingIn()) {
+      return this.render("loading");
+    }
+    else if (Meteor.user()) {
+      return this.redirect("/newsfeed");
+    }
+    else{
+      this.next();
+    }
+  },
+  action: function () {
+    this.render();
+  }
+});
+Router.route('/signup', {
+  name: 'signup',
+  path: '/signup',
+  layoutTemplate: "formLayout",
+  template: 'signup',
+  onBeforeAction: function() {
+    if (Meteor.loggingIn()) {
+      return this.render("loading");
+    }
+    else if (Meteor.user()) {
+      return this.redirect("/newsfeed");
+    }
+    else{
+      this.next();
+    }
+  },
+  action: function () {
+    this.render();
+  }
 });
 
-Router.route('/signup', function () {
-	this.layout('formLayout');
-	this.render('signup');
+Router.route('/forgotPassword', {
+  name: 'forgotPassword',
+  path: '/forgotPassword',
+  layoutTemplate: "formLayout",
+  template: 'forgotPassword',
+  onBeforeAction: function() {
+    if (Meteor.loggingIn()) {
+      return this.render("loading");
+    }
+    else if (Meteor.user()) {
+      return this.redirect("/newsfeed");
+    }
+    else{
+      this.next();
+    }
+  },
+  action: function () {
+    this.render();
+  }
 });
 
-Router.route('/forgotPassword', function () {
-	this.layout('formLayout');
-	this.render('forgotPassword');
+Router.route("/signout", {
+  action: function() {
+    return Meteor.logout(function() {
+      return Router.go("/");
+    });
+  }
 });
 
-Router.route('/newsfeed', function () {
-  this.render('newsfeed');
+Router.route('/newsfeed', {
+  name: 'newsfeed',
+  path: '/newsfeed',
+  template: 'newsfeed',
+  onBeforeAction: function() {
+    if (Meteor.loggingIn()) {
+      return this.render("loading");
+    } else if (Meteor.user()) {
+      return this.next();
+    } else {
+      return this.redirect("/");
+    }
+  },
+  waitOn: function () {
+    return Meteor.subscribe('posts');
+  }
 });
+
 
 Router.route('/post/:_id', {
   // The name of the route.

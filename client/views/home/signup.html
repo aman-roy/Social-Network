@@ -1,11 +1,26 @@
 <template name="signup">
 	<div class="container">
 		<div class="row vertical">
+			<div id="signup-error-modal" class="modal">
+    			<div class="modal-content" id="signup-error">
+    			</div>
+    			<div class="modal-footer">
+      				<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Ok</a>
+    			</div>
+  			</div>
 			<form id="signup-form">
 				<div class="row">
-		        	<div class="input-field col s12">
-		          		<input id="signup-name" type="text" class="validate" required/>
-		          		<label for="signup-name" data-error="Please check yor name">Name</label>
+		        	<div class="input-field col s4">
+		          		<input id="signup-firstname" type="text" class="validate" required/>
+		          		<label for="signup-firstname" data-error="Please check your first name">First Name</label>
+		        	</div>
+		        	<div class="input-field col s4">
+		          		<input id="signup-midname" type="text" class="validate"/>
+		          		<label for="signup-midname" data-error="Please check your middle name">Middle Name</label>
+		        	</div>
+		        	<div class="input-field col s4">
+		          		<input id="signup-lastname" type="text" class="validate" required/>
+		          		<label for="signup-lastname" data-error="Please check your last name">Last Name</label>
 		        	</div>
 		      	</div>
 				<div class="row">

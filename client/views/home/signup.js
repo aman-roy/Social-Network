@@ -3,13 +3,16 @@ Template.signup.events({
         event.preventDefault();
         var user;
         user = {
-        	name: template.find('#signup-name').value,
+        	firstname: template.find('#signup-firstname').value,
+            midname: template.find('#signup-midname').value,
+            lastname: template.find('#signup-lastname').value,
         	email: template.find('#signup-email').value,
         	password: template.find('#signup-password').value
         };
         Accounts.createUser(user, function(error){
         	if(error){
-        		console.log(error);
+        		$("#signup-error").text(error.reason);
+                $("#signup-error-modal").openModal();
         	}
         	else{
         		Router.go('newsfeed');

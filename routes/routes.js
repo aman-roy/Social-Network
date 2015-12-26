@@ -97,6 +97,7 @@ Router.route('/newsfeed', {
   name: 'newsfeed',
   path: '/newsfeed',
   template: 'newsfeed',
+  controller: 'PublicController',
   onBeforeAction: function() {
     if (Meteor.loggingIn()) {
       return this.render("loading");

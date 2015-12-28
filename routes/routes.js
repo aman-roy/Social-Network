@@ -1,7 +1,3 @@
-this.PublicController = RouteController.extend({
-  loadingTemplate: "loading"
-});
-
 Router.route('/', {
   name: 'homeLogin',
   path: '/',
@@ -97,7 +93,7 @@ Router.route('/newsfeed', {
   name: 'newsfeed',
   path: '/newsfeed',
   template: 'newsfeed',
-  controller: 'PublicController',
+  loadingTemplate: "loading",
   onBeforeAction: function() {
     if (Meteor.loggingIn()) {
       return this.render("loading");
@@ -107,8 +103,27 @@ Router.route('/newsfeed', {
       return this.redirect("/");
     }
   },
-  waitOn: function () {
-    return Meteor.subscribe('posts');
+  action: function(){
+    this.render();
+  }
+});
+
+Router.route('/profile', {
+  name: 'profile',
+  path: '/profile',
+  template: 'profile',
+  loadingTemplate: "loading",
+  onBeforeAction: function() {
+    if (Meteor.loggingIn()) {
+      return this.render("loading");
+    } else if (Meteor.user()) {
+      return this.next();
+    } else {
+      return this.redirect("/");
+    }
+  },
+  action: function(){
+    this.render();
   }
 });
 

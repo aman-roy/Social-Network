@@ -7,8 +7,9 @@ Template.login.events({
         	if (Meteor.user()) {
                 Router.go('newsfeed');
             } else {
+                console.log(error.reason);
+                $("#login-error-modal").openModal();
             	$("#login-error").text(error.reason);
-            	$("#login-error-modal").openModal();
             }
             return;
         });

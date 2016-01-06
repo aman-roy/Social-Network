@@ -39,6 +39,7 @@ Router.route('/login', {
     this.render();
   }
 });
+
 Router.route('/signup', {
   name: 'signup',
   path: '/signup',

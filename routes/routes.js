@@ -8,7 +8,7 @@ Router.route('/', {
       return this.render("loading");
     }
     else if (Meteor.user()) {
-      return this.redirect("/newsfeed");
+      return this.redirect("/index");
     }
     else{
       this.next();
@@ -29,7 +29,7 @@ Router.route('/login', {
       return this.render("loading");
     }
     else if (Meteor.user()) {
-      return this.redirect("/newsfeed");
+      return this.redirect("/index");
     }
     else{
       this.next();
@@ -50,7 +50,7 @@ Router.route('/signup', {
       return this.render("loading");
     }
     else if (Meteor.user()) {
-      return this.redirect("/newsfeed");
+      return this.redirect("/index");
     }
     else{
       this.next();
@@ -71,7 +71,7 @@ Router.route('/forgotPassword', {
       return this.render("loading");
     }
     else if (Meteor.user()) {
-      return this.redirect("/newsfeed");
+      return this.redirect("/index");
     }
     else{
       this.next();
@@ -90,10 +90,10 @@ Router.route("/signout", {
   }
 });
 
-Router.route('/newsfeed', {
-  name: 'newsfeed',
-  path: '/newsfeed',
-  template: 'newsfeed',
+Router.route('/index', {
+  name: 'index',
+  path: '/index',
+  template: 'index',
   loadingTemplate: "loading",
   onBeforeAction: function() {
     if (Meteor.loggingIn()) {

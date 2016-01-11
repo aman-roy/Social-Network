@@ -10,7 +10,7 @@ Template.login.events({
         $('#loaderModal').show();
         Meteor.loginWithPassword(emailVar, passwordVar,function(error){
         	if (Meteor.user()) {
-                Router.go('newsfeed');
+                Router.go('index');
             } else {
                 $('#loaderModal').hide();
                 console.log(error.reason);

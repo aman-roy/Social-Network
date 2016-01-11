@@ -4,10 +4,7 @@ Router.route('/', {
   layoutTemplate: "formLayout",
   template: 'login',
   onBeforeAction: function() {
-    if (Meteor.loggingIn()) {
-      return this.render("loading");
-    }
-    else if (Meteor.user()) {
+    if (Meteor.user()) {
       return this.redirect("/index");
     }
     else{
@@ -25,10 +22,7 @@ Router.route('/login', {
   layoutTemplate: "formLayout",
   template: 'login',
   onBeforeAction: function() {
-    if (Meteor.loggingIn()) {
-      return this.render("loading");
-    }
-    else if (Meteor.user()) {
+    if (Meteor.user()) {
       return this.redirect("/index");
     }
     else{
@@ -46,10 +40,7 @@ Router.route('/signup', {
   layoutTemplate: "formLayout",
   template: 'signup',
   onBeforeAction: function() {
-    if (Meteor.loggingIn()) {
-      return this.render("loading");
-    }
-    else if (Meteor.user()) {
+    if (Meteor.user()) {
       return this.redirect("/index");
     }
     else{
@@ -67,10 +58,7 @@ Router.route('/forgotPassword', {
   layoutTemplate: "formLayout",
   template: 'forgotPassword',
   onBeforeAction: function() {
-    if (Meteor.loggingIn()) {
-      return this.render("loading");
-    }
-    else if (Meteor.user()) {
+    if (Meteor.user()) {
       return this.redirect("/index");
     }
     else{

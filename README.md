@@ -3,7 +3,7 @@ A mini Social Network using Meteor[*Currently under Development*]
 
 # To Do
 
-## Version 1 Beta
+## Version 1.0b
 * [ ] Implement Newsfeed feature
 * [ ] Add post feature
 * [ ] Complete Profile feature
